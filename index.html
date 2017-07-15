@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <script src="http://tappedout.net/tappedout.js"></script>
+    </head>
+    <body ng-app="mainApp">
+        <a ui-sref="about" ui-sref-active="active">About</a>
+        <a ui-sref="home" ui-sref-active="active">home</a>
+        <a ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
+        <a ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
+        <a ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a>
+        <a ui-sref="deckcollection" ui-sref-active="active">Log-In</a>
+
+        <div ui-view style='background-color:aquamarine'></div>
+
+
+       
+
+
+            <p>I'd like to thank <span class="mtgcard">Phyrexian Dreadnought</span> for existing. 
+                But really <span class="mtgcard">Serra Angel [M10]</span> is my jam.</p> 
+        
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="./node_modules/angular/angular.js"></script>
+        <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+        <script src="./app.js"></script>
+        <script src="./service.js"></script>
+        <script src="./controller.js"></script>
+        <script src="./cardSearchController.js"></script>
+        <script src="./deckBuilderController.js"></script>
+        <script src="./deckCollectionController.js"></script>
+        
+    </body>
+</html>

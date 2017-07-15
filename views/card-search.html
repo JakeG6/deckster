@@ -1,0 +1,19 @@
+ <div ng-controller="cardSearchController">
+            
+
+            
+            <p>enter a multiverse number below to retrieve card information</p>
+            <form>
+                <input ng-model="cardInput" type="text" name="" value="">
+                <button ng-click="getCard(cardInput)" type="button" name="button">Search by Multiverse ID</button>
+            </form>
+
+            
+                <img src={{displayedCard.imageUrl}} alt="">
+                <h3>Name: {{displayedCard.name}}</h3>
+                <h3>Mana Cost: {{displayedCard.manaCost}}</h3>
+                <h3>Converted Mana Cost: {{displayedCard.cmc}}</h3>
+                <h3>Colors: {{displayedCard.colors}}</h3>
+                <h3>Type: {{displayedCard.type}}</h3>
+		    
+        </div>
