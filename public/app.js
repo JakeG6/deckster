@@ -29,6 +29,14 @@ angular.module('mainApp', ['ui.router'])
         .state('deckCollection', {
             url: '/deckcollection',
             templateUrl: './views/deck-collection.html'
+        })
+        .state('loginSuccess', {
+            url: '/loginsuccess',
+            templateUrl: './views/login-success.html'
+        })
+        .state('loginFailure', {
+            url: '/loginfailure',
+            templateUrl: './views/login-failure.html'
         });
 
          $urlRouterProvider.otherwise('/');
