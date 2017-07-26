@@ -1,0 +1,28 @@
+#logo {
+    color: white;
+    font-family: UnifrakturMaguntia;
+    letter-spacing: 5px;
+}
+
+#background {
+    background-color: #4a0000;
+background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.facebook-signin {
+    margin-top: .5em;
+}
+
+.register-button {
+    width: 12.5em;
+}
+
+.login-button {
+    margin-top: 2em;
+    width: 12.5em;
+}
+
+#deck-array {
+    background-color: brown;
+}

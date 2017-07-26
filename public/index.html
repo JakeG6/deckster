@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainApp">
     <head>
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+            rossorigin="anonymous">
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=UnifrakturMaguntia" />
         <link href="style.css" rel="stylesheet">
         <script src="http://tappedout.net/tappedout.js"></script>
+        <!-- Latest compiled and minified CSS -->
+
         
     </head>
-    <body ng-app="mainApp">
-        <a ui-sref="about" ui-sref-active="active">About</a>
-        <a ui-sref="home" ui-sref-active="active">home</a>
-        <a ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
-        <a ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
-        <a ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a>
-        <a ui-sref="deckcollection" ui-sref-active="active">Log-In</a>
+    <body id="background" ng-controller="mainController">
 
-        <div ui-view style='background-color:aquamarine'></div>
+        <nav class="navbar navbar-inverse nav-pills container-fluid">
+            <h1 id="logo">Deckster</h1>
+            <a class="nav-link active" ui-sref="about" ui-sref-active="active">About</a>
+            <a class="nav-link active" ui-sref="home" ui-sref-active="active">home</a>
+            <a class="nav-link active" ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
+            <a class="nav-link active" ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
+            <a class="nav-link active" ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a>
+            <a class="nav-link active" ng-click="changeLoginStatus()" ui-sref-active="active">{{loginStatus}}</a>
+        </nav>
 
+        <div ui-view style='background-color:aquamarine' class="container"></div>
 
-       
-
-
-            <p>I'd like to thank <span class="mtgcard">Phyrexian Dreadnought</span> for existing. 
+            <p style="color: white">I'd like to thank <span class="mtgcard">Phyrexian Dreadnought</span> for existing. 
                 But really <span class="mtgcard">Serra Angel [M10]</span> is my jam.</p> 
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">

@@ -8,12 +8,19 @@
                 <button ng-click="getCard(cardInput)" type="button" name="button">Search by Multiverse ID</button>
             </form>
 
-            
-                <img src={{displayedCard.imageUrl}} alt="">
-                <h3>Name: {{displayedCard.name}}</h3>
-                <h3>Mana Cost: {{displayedCard.manaCost}}</h3>
-                <h3>Converted Mana Cost: {{displayedCard.cmc}}</h3>
-                <h3>Colors: {{displayedCard.colors}}</h3>
-                <h3>Type: {{displayedCard.type}}</h3>
-		    
+            <div class="container" style="background-color:orange">
+            </style>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src={{displayedCard.imageUrl}} alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>Name: {{displayedCard.name}}</h3>
+                        <h3>Mana Cost: {{displayedCard.manaCost}}</h3>
+                        <h3>Converted Mana Cost: {{displayedCard.cmc}}</h3>
+                        <h3>Colors: {{displayedCard.colors}}</h3>
+                        <h3>Type: {{displayedCard.type}}</h3>
+                    </div>                
+                </div>
+            </div>		    
         </div>

@@ -1,0 +1,21 @@
+<div ng-controller="deckCollectionController.js">
+   This is your deck collection.
+
+    <div class="container" style="background-color:orange">
+        <div class="row">
+            <div class="col-6">
+                Column 1 of two             
+            </div>
+            <div class="col-6"> 
+                Column 2 of two             
+            </div>                
+        </div>
+    </div>		   
+    
+
+   <div id="deck-array" ng-repeat="deck in deckArray">
+       <div>{{deck.name}}</div>
+   </div>
+
+
+</div>

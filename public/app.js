@@ -32,7 +32,22 @@ angular.module('mainApp', ['ui.router'])
         })
         .state('loginSuccess', {
             url: '/loginsuccess',
-            templateUrl: './views/login-success.html'
+            templateUrl: './views/login-success.html',
+            resolve: {
+                promiseObj: function ($http) {
+                    return $http({
+                        method: 'GET',
+                        url: '/loginsuccess'
+                    })
+                }
+            },
+            controller: function($scope, promiseObj) {
+                console.log('$scope baby', $scope)
+                if (promiseObj.data.id) {
+                    console.log('in if statement')
+                    localStorage.setItem('user', JSON.stringify(promiseObj.data.id))   
+                }
+            }
         })
         .state('loginFailure', {
             url: '/loginfailure',

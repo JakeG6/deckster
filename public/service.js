@@ -40,7 +40,7 @@ angular.module('mainApp').service('mainService', function($http) {
             });
     }
 
-        this.getCardByName = function(name) {
+    this.getCardByName = function(name) {
         console.log(11111, 'I am here')
         return $http({
             method: 'GET',
@@ -58,7 +58,7 @@ angular.module('mainApp').service('mainService', function($http) {
             });
     }
 
-        this.getCardById = function(id) {
+    this.getCardById = function(id) {
         console.log(11111, 'I am here')
         return $http({
             method: 'GET',
@@ -73,7 +73,26 @@ angular.module('mainApp').service('mainService', function($http) {
                     response.data.card.type);
             }, function (response) {
                 alert('An Error');
-            });
+        });
     }
+
+    this.getDecks = function() {
+        console.log('getting the deck collection from the user account');
+        return $http({
+            method: 'GET',
+            url: '/api/user/1/decks'
+      }  ).then(function(response) {
+          console.log(1111111, reponse)
+                return //user.userDecks;
+                    
+            }, function (response) {
+        alert('An Error');
+    });
+
+    }
+
+    
+
+
 
 });
