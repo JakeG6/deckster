@@ -1,13 +1,87 @@
-#logo {
-    color: white;
-    font-family: UnifrakturMaguntia;
-    letter-spacing: 5px;
-}
+
 
 #background {
     background-color: #4a0000;
-background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+    background-image: url("https://www.transparenttextures.com/patterns/leather.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+/* navigation */
+
+.ourNav {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5em;
+    align-items: center;
+    z-index: 1;
+}
+
+ul {list-style-type: none;}
+
+
+.logo {
+    color: white;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-family: UnifrakturMaguntia;
+    letter-spacing: 5px;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 75%;
+}
+
+#links a {
+    font-family: "Prociono", "Serif";
+    color: white;
+    
+    font-size: 20px;
+    margin: auto .5em;
+    
+}
+
+#links a:hover {
+    text-decoration: none;
+     color: #337ab7;
+}
+
+.fa-bars {
+    display: none;
+    margin-right: 1em;
+     cursor: pointer;
+}
+
+.main-view {
+    background-color: #101726;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-v2.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    color: white;
+    margin-top: 2em;
+    border: 7px ridge #B5A642;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+}
+
+/* home */
+
+.signup-container {
+    margin-bottom: 2em;
 }
 
 .facebook-signin {
@@ -21,8 +95,124 @@ background-image: url("https://www.transparenttextures.com/patterns/leather.png"
 .login-button {
     margin-top: 2em;
     width: 12.5em;
+    color: black;
 }
 
 #deck-array {
     background-color: brown;
+}
+
+.decklist-input {
+    width: 400px;
+    height: 450px;
+}
+
+.deck-notes {
+    height: 400px;
+    width: 300px;
+}
+
+
+/*Card Search State*/
+
+#card-search {
+    margin: 1em;
+}
+
+.search-form{
+    text-align: center;
+    color: black;
+}
+
+.search-form p {
+    color: white;
+}
+
+.search-form button {
+    margin-left: 1em;
+}
+
+
+.display-row {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.card-display {
+    text-align: center;
+}
+
+.card-stat {
+    text-align: center;
+}
+/*deck builder*/
+
+.deck-builder {
+    color: black;
+}
+
+
+/* Media Queries */
+
+
+@media (max-width: 1024px) {
+
+    #links {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    
+    background-color: black;
+    width: 240px;
+    height: 3em;
+    top: 300px;
+    right: 0px;
+    z-index: 1;
+}
+
+    #links a {
+    font-family: "Prociono", "Serif";
+    color: white;
+    font-size: 20px;
+    
+    padding-bottom: 1em;
+    
+}
+
+    #links a:hover  {
+        color: #337ab7;
+    }
+
+    #links div {
+        padding: 1em 1em;
+        background-color: black;
+    }
+
+#links a:hover {
+    text-decoration: none;
+}
+
+    #links .fa-bars {
+        display: block;
+        color: white;
+        display: block;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .fa-bars {
+        display: block;
+    }
+
+}
+
+
+@media (max-width: 375px) {
+
+/*Card Search Queries */
+
+    .search-form button {
+        margin-top: 2em;
+    }
+
 }

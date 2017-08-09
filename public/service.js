@@ -1,4 +1,4 @@
-angular.module('mainApp').service('mainService', function($http) {
+angular.module('mainApp').service('mainService', function($http, $state) {
   
     var userAccount = [];
 
@@ -16,6 +16,15 @@ angular.module('mainApp').service('mainService', function($http) {
     function User(username, password) {
         this.username = username;
         this.password = password
+    }
+
+    this.login = function() {
+        return $http({
+            method: 'GET',
+            url: '/auth/facebook'
+        }).then(function(response) {
+            console.log("RESPONSE WOOO WOO WOO", response)
+        })
     }
 
     this.createUser = function(username, password) {
@@ -59,7 +68,6 @@ angular.module('mainApp').service('mainService', function($http) {
     }
 
     this.getCardById = function(id) {
-        console.log(11111, 'I am here')
         return $http({
             method: 'GET',
             url: 'https://api.magicthegathering.io/v1/cards/' + id
@@ -77,22 +85,68 @@ angular.module('mainApp').service('mainService', function($http) {
     }
 
     this.getDecks = function() {
-        console.log('getting the deck collection from the user account');
+        var userId = JSON.parse(sessionStorage.getItem('user')).id
+
         return $http({
             method: 'GET',
-            url: '/api/user/1/decks'
-      }  ).then(function(response) {
-          console.log(1111111, reponse)
-                return //user.userDecks;
-                    
-            }, function (response) {
-        alert('An Error');
-    });
+            url: 'api/users/' + userId + '/decks',
+        });
+    }
+
+    this.saveDeck = function() {
+        var userId = JSON.parse(sessionStorage.getItem('user')).id
+
+        return $http({
+            method: 'POST',
+            url: 'api/users/' + userId + '/decks',
+        });    
+    }
+
+    this.updateDeck = function(deck) {
+        var userId = JSON.parse(sessionStorage.getItem('user')).id
+        
+        console.log('this is userId', userId);
+        console.log(deck);
+        
+        return $http({
+            method: 'PUT',
+            url: 'api/users/' + userId + '/decks',
+            data: deck
+        });
 
     }
 
-    
+    this.createDeck = function(name, deckNotes, deckList) {
+        
+        var userId = JSON.parse(sessionStorage.getItem('user')).id;
 
+        function Deck(name, user_id, deck_notes, deck_list) {
+                this.name = name,
+                this.user_id = user_id,
+                this.deck_notes = deck_notes,
+                this.deck_list = deck_list
+        };
+        
+        console.log(Deck);
 
+        return $http({
+            method: 'POST',
+            url: 'api/users/' + userId + '/decks',
+            data: new Deck(name, userId, deckNotes, deckList)
+        }).then(function(response, error) {
+            // this callback will be called asynchronously
+            // when the response is available
+            if (error) {
+                alert(`It did not work! ${error}`);
+            }
+            else {
+                 $state.go('deckConfirm');
+            }
+           
+            
+            }
+        )
+
+    }
 
 });

@@ -1,16 +1,18 @@
-
-
 angular.module('mainApp').controller('deckCollectionController', function($scope, mainService) {
   
     $scope.deckArray = [];
 
-    $scope.retrieveDeckCollection = function() {
-       return mainService.getDeckCollection();
-       $scope.deckArray = user.userDecks;
+    $scope.getDecks = function() {
+       mainService.getDecks().then(function(response) {
+        $scope.decks = response.data;
+       });
     }
-
-    $scope.retrieveDeckCollection();
     
-   
+    $scope.getDecks();
+
+    $scope.updateDeck = function(deck) {
+        console.log('updating deck in controller');
+        mainService.updateDeck(deck);
+    }
 
 });

@@ -4,10 +4,11 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-            rossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+            crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=UnifrakturMaguntia" />
+            <link href="https://fonts.googleapis.com/css?family=Prociono" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <script src="http://tappedout.net/tappedout.js"></script>
         <!-- Latest compiled and minified CSS -->
@@ -16,31 +17,62 @@
     </head>
     <body id="background" ng-controller="mainController">
 
-        <nav class="navbar navbar-inverse nav-pills container-fluid">
-            <h1 id="logo">Deckster</h1>
-            <a class="nav-link active" ui-sref="about" ui-sref-active="active">About</a>
-            <a class="nav-link active" ui-sref="home" ui-sref-active="active">home</a>
-            <a class="nav-link active" ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
-            <a class="nav-link active" ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
-            <a class="nav-link active" ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a>
-            <a class="nav-link active" ng-click="changeLoginStatus()" ui-sref-active="active">{{loginStatus}}</a>
-        </nav>
+        <div class="ourNav">            
+            <a class="logo" href="#">Deckster</a>
+          
+           
+            <div>
+                 <i class="fa fa-bars fa-3x" aria-hidden="true"></i> 
+            </div>
+              
 
-        <div ui-view style='background-color:aquamarine' class="container"></div>
+            <ul id="links" >
+                <li>
+                    <div>
+                        <a class="active" ui-sref="home" ui-sref-active="active">Home</a>
+                    </div>    
+                </li>
+                <li>
+                    <div>
+                        <a class="active" ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
+                    </div>    
+                </li>
+                <li>
+                    <div>
+                        <a class="active" ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
+                    </div>    
+                </li>
+                <li>
+                    <div>
+                       <a class="active" ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a> 
+                    </div>    
+                </li>
+                <li>
+                    <div>
+                        <a class="active" ng-click="changeLoginStatus()" ui-sref-active="active">{{loginStatus}}</a>
+                    </div>    
+                </li>
+                
+                                                                           
+            </ul>
+                          
+        </div>
 
-            <p style="color: white">I'd like to thank <span class="mtgcard">Phyrexian Dreadnought</span> for existing. 
-                But really <span class="mtgcard">Serra Angel [M10]</span> is my jam.</p> 
-        
+        <div ui-view class="main-view container"></div>
+  
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
         <script src="./node_modules/angular/angular.js"></script>
         <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+        <script src="./dropDownMenu.js"></script>
         <script src="./app.js"></script>
         <script src="./service.js"></script>
         <script src="./controller.js"></script>
         <script src="./cardSearchController.js"></script>
         <script src="./deckBuilderController.js"></script>
         <script src="./deckCollectionController.js"></script>
+        <script src="./homeController.js"></script>
         
     </body>
 </html>

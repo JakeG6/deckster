@@ -1,13 +1,16 @@
 angular.module('mainApp', ['ui.router'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+    $httpProvider.defaults.withCredentials = true;
 
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/',
-            templateUrl: '/views/home.html'
+            templateUrl: '/views/home.html',
+            controller: 'homeController'
         })
 
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
@@ -23,12 +26,14 @@ angular.module('mainApp', ['ui.router'])
         
         .state('deckBuilder', {
             url: '/deckbuilder',
-            templateUrl: './views/deck-builder.html'
+            templateUrl: './views/deck-builder.html',
+            controller: 'deckBuilderController'
         })
         
         .state('deckCollection', {
             url: '/deckcollection',
-            templateUrl: './views/deck-collection.html'
+            templateUrl: './views/deck-collection.html',
+            controller: 'deckCollectionController'
         })
         .state('loginSuccess', {
             url: '/loginsuccess',
@@ -38,20 +43,19 @@ angular.module('mainApp', ['ui.router'])
                     return $http({
                         method: 'GET',
                         url: '/loginsuccess'
+                    }).then(function(response) {
+                        sessionStorage.setItem('user', JSON.stringify(response.data[0]))   
                     })
-                }
-            },
-            controller: function($scope, promiseObj) {
-                console.log('$scope baby', $scope)
-                if (promiseObj.data.id) {
-                    console.log('in if statement')
-                    localStorage.setItem('user', JSON.stringify(promiseObj.data.id))   
                 }
             }
         })
         .state('loginFailure', {
             url: '/loginfailure',
             templateUrl: './views/login-failure.html'
+        })
+        .state('deckConfirm', {
+            url: '/deckconfirm',
+            templateUrl: 'views/deck-confirm.html'
         });
 
          $urlRouterProvider.otherwise('/');

@@ -1,4 +1,42 @@
-<div>
-    <input type="text" name="fname"><br>
-    <input type="submit" name="submit"><br>
-</div> 
+<div class="container-fluid deck-builder">
+    <div class="center-block deck-name container-fluid">
+        <input ng-model="name" type="text" name="name" placeholder="Deck Name"><br>
+    </div>
+    <div class="col-md-6">
+        
+        <textarea ng-model="deckNotes" class="center-block" placeholder="Notes about the deck" rows="20" cols="50" ></textarea> <br>
+    </div>
+
+    <div class="col-md-6">
+        <textarea ng-model="deckList" class="center-block" placeholder="enter the deck's content's here" rows="20" cols="50" ></textarea> <br>
+       
+    </div> 
+    <div>
+        <input ng-click="createDeck(name, deckNotes, deckList)" class="btn btn-success center-block save-deck"type="submit" name="Save Deck"><br>
+    </div>
+    
+</div>
+
+
+
+<style>
+    .deck-builder {
+    color: black;
+    }
+
+    .deck-name {
+        margin-bottom: 1em;
+        margin-left: auto;
+    }
+
+    .save-deck {
+        margin: 0 auto;
+    }
+
+
+
+   
+
+</style>
+
+

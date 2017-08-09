@@ -1,25 +1,31 @@
- <div ng-controller="cardSearchController">
+ <div id="card-search" ng-controller="cardSearchController">
             
 
             
-            <p>enter a multiverse number below to retrieve card information</p>
-            <form>
+            
+            <form class="search-form">
+                <p>enter a multiverse number below to retrieve card information</p>
                 <input ng-model="cardInput" type="text" name="" value="">
+                <select>
+                    <option value="volvo">Search by Name</option>
+                    <option value="saab">Search by Multiverse ID</option>
+                    
+                </select>
                 <button ng-click="getCard(cardInput)" type="button" name="button">Search by Multiverse ID</button>
             </form>
 
-            <div class="container" style="background-color:orange">
+            <div class="container" >
             </style>
-                <div class="row">
-                    <div class="col-sm-6">
+                <div class="row display-row">
+                    <div class="col-sm-6 card-display">
                         <img src={{displayedCard.imageUrl}} alt="">
                     </div>
-                    <div class="col-sm-6">
-                        <h3>Name: {{displayedCard.name}}</h3>
-                        <h3>Mana Cost: {{displayedCard.manaCost}}</h3>
-                        <h3>Converted Mana Cost: {{displayedCard.cmc}}</h3>
-                        <h3>Colors: {{displayedCard.colors}}</h3>
-                        <h3>Type: {{displayedCard.type}}</h3>
+                    <div class="col-sm-6 card-stat-display">
+                        <h3>Name: <h4>{{displayedCard.name}}</h4></h3>
+                        <h3>Mana Cost: <h4>{{displayedCard.manaCost}}</h4></h3>
+                        <h3>Converted Mana Cost: <h4>{{displayedCard.cmc}}</h4></h3>
+                        <h3>Colors: <h4>{{displayedCard.colors}}</h4></h3>
+                        <h3>Type: <h4>{{displayedCard.type}}</h4></h3>
                     </div>                
                 </div>
             </div>		    

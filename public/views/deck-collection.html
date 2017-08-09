@@ -1,21 +1,35 @@
-<div ng-controller="deckCollectionController.js">
+<div>
    This is your deck collection.
-
-    <div class="container" style="background-color:orange">
-        <div class="row">
-            <div class="col-6">
-                Column 1 of two             
-            </div>
-            <div class="col-6"> 
-                Column 2 of two             
-            </div>                
-        </div>
-    </div>		   
     
+   <div id="deck-array" ng-repeat="deck in decks">
+        <div ng-click="deck.openModal=!deck.openModal">{{deck.name}}</div>
 
-   <div id="deck-array" ng-repeat="deck in deckArray">
-       <div>{{deck.name}}</div>
+        <div class="modal-overlay" ng-show="deck.openModal" style="color: black">
+            <div class="modal-display">
+                <div class="modal-content">
+                    <div ng-show="!deck.edit">
+                        <button type="" ng-click="deck.openModal=!deck.openModal">close modal</button>
+                        <h3>{{deck.name}}</h3>
+                        <p>{{deck.deck_list}}</p>
+                        <p>{{deck.deck_notes}}</p>
+                        <button ng-click="deck.edit=!deck.edit">edit</button>
+                    </div>
+                    <div ng-show="deck.edit">
+                        name: <input ng-model="deck.name">
+                        contents: <textarea ng-model="deck.deck_list"></textarea>
+                        notes: <textarea ng-model="deck.deck_notes"></textarea>
+                        <div class="deck-actions">
+                           <button type="" ng-click="updateDeck(deck)">submit changes</button> 
+                           <button type="" ng-click="deck.edit=!deck.edit">cancel</button> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
    </div>
+
+<a class="btn btn-primary" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
+
 
 
 </div>
