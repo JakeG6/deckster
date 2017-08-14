@@ -4,14 +4,16 @@
             
             
             <form class="search-form">
-                <p>enter a multiverse number below to retrieve card information</p>
+                <p>Retrieve card information via Name or multiverse ID</p>
                 <input ng-model="cardInput" type="text" name="" value="">
-                <select>
+                <!-- <select>
                     <option value="volvo">Search by Name</option>
                     <option value="saab">Search by Multiverse ID</option>
                     
-                </select>
-                <button ng-click="getCard(cardInput)" type="button" name="button">Search by Multiverse ID</button>
+                </select> -->
+
+                <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
+                <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
             </form>
 
             <div class="container" >
@@ -21,11 +23,13 @@
                         <img src={{displayedCard.imageUrl}} alt="">
                     </div>
                     <div class="col-sm-6 card-stat-display">
-                        <h3>Name: <h4>{{displayedCard.name}}</h4></h3>
-                        <h3>Mana Cost: <h4>{{displayedCard.manaCost}}</h4></h3>
-                        <h3>Converted Mana Cost: <h4>{{displayedCard.cmc}}</h4></h3>
-                        <h3>Colors: <h4>{{displayedCard.colors}}</h4></h3>
-                        <h3>Type: <h4>{{displayedCard.type}}</h4></h3>
+                        <p><strong>Name:</strong> {{displayedCard.name}}</p> 
+                        <p><strong>Mana Cost:</strong> {{displayedCard.manaCost}}</p>
+                        <p><strong>Converted Mana Cost:</strong> {{displayedCard.cmc}}</p>
+                        <p><strong>Colors:</strong> {{displayedCard.colors}}</p>
+                        <p><strong>Type:</strong> {{displayedCard.type}}</p>
+                        <p><strong>Text:</strong> {{displayedCard.text}}</p>
+
                     </div>                
                 </div>
             </div>		    

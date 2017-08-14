@@ -1,18 +1,21 @@
 <div>
-   This is your deck collection.
+   <h1>Your Deck Collection</h1>
+   
+
+
     
    <div id="deck-array" ng-repeat="deck in decks">
-        <div ng-click="deck.openModal=!deck.openModal">{{deck.name}}</div>
+        <h2 class="deck-array-title" ng-click="deck.openModal=!deck.openModal">{{deck.name}}</h2>
 
         <div class="modal-overlay" ng-show="deck.openModal" style="color: black">
             <div class="modal-display">
                 <div class="modal-content">
                     <div ng-show="!deck.edit">
-                        <button type="" ng-click="deck.openModal=!deck.openModal">close modal</button>
                         <h3>{{deck.name}}</h3>
                         <p>{{deck.deck_list}}</p>
                         <p>{{deck.deck_notes}}</p>
                         <button ng-click="deck.edit=!deck.edit">edit</button>
+                        <button type="" ng-click="deck.openModal=!deck.openModal">close modal</button>
                     </div>
                     <div ng-show="deck.edit">
                         name: <input ng-model="deck.name">

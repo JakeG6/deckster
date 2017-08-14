@@ -2,7 +2,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
   
     var userAccount = [];
 
-    function Card(imageUrl, name, manaCost, cmc, colors, type) {
+    function Card(imageUrl, name, manaCost, cmc, colors, type, text) {
        
         this.imageUrl = imageUrl;
         this.name = name;
@@ -10,6 +10,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
         this.cmc = cmc;
         this.colors = colors;
         this.type = type;
+        this.text = text;
 
     }
 
@@ -37,13 +38,15 @@ angular.module('mainApp').service('mainService', function($http, $state) {
             method: 'GET',
             url: 'https://api.magicthegathering.io/v1/cards/' + id
             }).then(function(response) {
+                console.log(response);
                 return new Card(
                     response.data.card.imageUrl,
                     response.data.card.name, 
                     response.data.card.manaCost,
                     response.data.card.cmc,
                     response.data.card.colors,
-                    response.data.card.type);
+                    response.data.card.type,
+                    response.data.card.text);
             }, function (response) {
                 alert('An Error');
             });
@@ -53,17 +56,20 @@ angular.module('mainApp').service('mainService', function($http, $state) {
         console.log(11111, 'I am here')
         return $http({
             method: 'GET',
-            url: 'https://api.magicthegathering.io/v1/cards/' + name
-            }).then(function(response) {
+            url: 'https://api.magicthegathering.io/v1/cards?name=' + name
+            }).then(function(cards) {
+                console.log('cards in service', cards)
+                const response = cards.data.cards[0];
                 return new Card(
-                    response.data.card.imageUrl,
-                    response.data.card.name, 
-                    response.data.card.manaCost,
-                    response.data.card.cmc,
-                    response.data.card.colors,
-                    response.data.card.type);
+                    response.imageUrl,
+                    response.name, 
+                    response.manaCost,
+                    response.cmc,
+                    response.colors,
+                    response.type,
+                    response.text);
             }, function (response) {
-                alert('An Error');
+                alert('An Error', response);
             });
     }
 
@@ -78,7 +84,8 @@ angular.module('mainApp').service('mainService', function($http, $state) {
                     response.data.card.manaCost,
                     response.data.card.cmc,
                     response.data.card.colors,
-                    response.data.card.type);
+                    response.data.card.type,
+                    response.data.card.text);
             }, function (response) {
                 alert('An Error');
         });

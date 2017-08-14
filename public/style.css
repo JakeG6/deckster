@@ -99,7 +99,11 @@ ul {list-style-type: none;}
 }
 
 #deck-array {
-    background-color: brown;
+    
+}
+
+.deck-array-title {
+    text-align: center;
 }
 
 .decklist-input {
@@ -142,9 +146,16 @@ ul {list-style-type: none;}
     text-align: center;
 }
 
-.card-stat {
-    text-align: center;
+.card-stat-display {
+    text-align: left;
+    
+    
 }
+
+.card-stat-display p {
+    width: 75%;
+}
+
 /*deck builder*/
 
 .deck-builder {
@@ -162,7 +173,7 @@ ul {list-style-type: none;}
     position: absolute;
     flex-direction: column;
     
-    background-color: black;
+    
     width: 240px;
     height: 3em;
     top: 300px;
@@ -214,5 +225,11 @@ ul {list-style-type: none;}
     .search-form button {
         margin-top: 2em;
     }
+
+    .card-stat-display {
+    text-align: center;
+    
+    
+}
 
 }
