@@ -1,38 +1,113 @@
 <div>
    <h1>Your Deck Collection</h1>
    
-
-
-    
    <div id="deck-array" ng-repeat="deck in decks">
         <h2 class="deck-array-title" ng-click="deck.openModal=!deck.openModal">{{deck.name}}</h2>
 
         <div class="modal-overlay" ng-show="deck.openModal" style="color: black">
             <div class="modal-display">
                 <div class="modal-content">
-                    <div ng-show="!deck.edit">
+                    <div class="not-edit" ng-show="!deck.edit">
                         <h3>{{deck.name}}</h3>
-                        <p>{{deck.deck_list}}</p>
+                        <div class="deck-list">
+                            <p>{{deck.deck_list}}</p>
+                        </div>
+                        
                         <p>{{deck.deck_notes}}</p>
-                        <button ng-click="deck.edit=!deck.edit">edit</button>
-                        <button type="" ng-click="deck.openModal=!deck.openModal">close modal</button>
+                        <button class="btn btn-primary" ng-click="deck.edit=!deck.edit">Edit</button>
+                        <button class="btn btn-primary" type="" ng-click="deck.openModal=!deck.openModal">Close</button>
                     </div>
                     <div ng-show="deck.edit">
-                        name: <input ng-model="deck.name">
-                        contents: <textarea ng-model="deck.deck_list"></textarea>
-                        notes: <textarea ng-model="deck.deck_notes"></textarea>
+                        <div class="edit-row">
+                            <div>
+                                Name: <br>
+                                <input ng-model="deck.name">
+                            </div>
+                            <div>
+                                Contents: <br> 
+                                <textarea ng-model="deck.deck_list"></textarea>
+                            </div>
+                            <div>
+                                Notes: <br>
+                            <textarea ng-model="deck.deck_notes"></textarea>
+                            </div>
+                        </div>                        
                         <div class="deck-actions">
-                           <button type="" ng-click="updateDeck(deck)">submit changes</button> 
-                           <button type="" ng-click="deck.edit=!deck.edit">cancel</button> 
+                           <button class="btn btn-primary" type="" ng-click="updateDeck(deck)">Save Changes</button> 
+                           <button class="btn btn-primary" type="" ng-click="deck.edit=!deck.edit">Close</button> 
                         </div>
                     </div>
                 </div> 
             </div>
         </div>
    </div>
-
-<a class="btn btn-primary" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
-
-
+   <div class="new-deck">
+       <a class="btn btn-primary" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
+   </div>
+    
 
 </div>
+
+<style>
+.deck-builder {
+    color: black;
+}
+
+.deck-array-title:hover {
+    color: #337ab7;
+    cursor: pointer;
+}
+
+.modal-display {
+    border: 7px ridge #B5A642;
+    border-radius: 10px;
+}
+
+.not-edit {
+    padding: 1em;
+}
+
+.deck-array-title {
+    text-align: center;
+}
+
+.edit-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.deck-actions {
+    text-align: center;
+    margin: 1em;
+}
+
+.deck-actions button {
+    margin: 0 1em;
+}
+
+.decklist-input {
+    width: 400px;
+    height: 450px;
+}
+
+.deck-notes {
+    height: 400px;
+    width: 300px;
+}
+
+.new-deck {
+    margin-bottom: 1em;
+    margin-top: 2em;
+    text-align: center;
+}
+
+.new-deck button {
+    width: 500px;
+}
+
+</style>
+
+<!-- Tapped Out: Failed to load resource: the server responded 
+with a status of 400 (Bad Request) -->
+

@@ -1,15 +1,18 @@
 
+<h1>Deck Builder</h1>
 
 <div class="container-fluid deck-builder">
     <div class="center-block deck-name container-fluid">
+        <h2>Name</h2>
         <input ng-model="name" type="text" name="name" placeholder="Deck Name"><br>
     </div>
     <div class="col-md-6">
-        
+        <h2>Notes</h2>
         <textarea ng-model="deckNotes" class="center-block" placeholder="Notes about the deck" rows="20" cols="50" ></textarea> <br>
     </div>
 
     <div class="col-md-6">
+        <h2>Deck List</h2>
         <textarea ng-model="deckList" class="center-block" placeholder="enter the deck's content's here" rows="20" cols="50" ></textarea> <br>
        
     </div> 
@@ -21,12 +24,21 @@
 
 <style>
     .deck-builder {
+        margin-top: 1em;
     color: black;
+    }
+
+    .deck-builder h2 {
+        color:white;
+    }
+
+    h2 {
+        text-align: center;
     }
 
     .deck-name {
         margin-bottom: 1em;
-        margin-left: auto;
+        text-align: center;
     }
 
     .save-deck {

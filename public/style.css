@@ -61,7 +61,8 @@ ul {list-style-type: none;}
 .fa-bars {
     display: none;
     margin-right: 1em;
-     cursor: pointer;
+    cursor: pointer;
+    color: lightgray;
 }
 
 .main-view {
@@ -98,23 +99,6 @@ ul {list-style-type: none;}
     color: black;
 }
 
-#deck-array {
-    
-}
-
-.deck-array-title {
-    text-align: center;
-}
-
-.decklist-input {
-    width: 400px;
-    height: 450px;
-}
-
-.deck-notes {
-    height: 400px;
-    width: 300px;
-}
 
 
 /*Card Search State*/
@@ -155,13 +139,6 @@ ul {list-style-type: none;}
 .card-stat-display p {
     width: 75%;
 }
-
-/*deck builder*/
-
-.deck-builder {
-    color: black;
-}
-
 
 /* Media Queries */
 
