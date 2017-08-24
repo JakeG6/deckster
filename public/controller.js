@@ -13,5 +13,10 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
 
     $scope.loginStatus = sessionStorage.getItem('user') ? true : false;
 
+    $scope.$on('reloadController', function() {
+        console.log('Something is happening')
+        $scope.loginStatus = sessionStorage.getItem('user') ? true : false;
+   })
+
 
 });

@@ -1,4 +1,4 @@
-angular.module('mainApp', ['ui.router'])
+angular.module('mainApp', ['ui.router', ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
@@ -38,10 +38,12 @@ angular.module('mainApp', ['ui.router'])
         .state('loginSuccess', {
             url: '/loginsuccess',
             templateUrl: './views/login-success.html',
+            controller: 'loginSuccessController',
             resolve: {
-                promiseObj: function ($http, $q, mainService) {
+                promiseObj: function ($http, $rootScope, $q, mainService) {
                     var deferred = $q.defer()
                     mainService.grabLoginSuccess().then(function(response) {
+                       
                         deferred.resolve()
                     })
                     return deferred.promise
