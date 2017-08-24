@@ -39,17 +39,12 @@ angular.module('mainApp', ['ui.router'])
             url: '/loginsuccess',
             templateUrl: './views/login-success.html',
             resolve: {
-                promiseObj: function ($http) {
-                    return $http({
-                        method: 'GET',
-                        url: '/loginsuccess'
-                    }).then(function(response) {
-                        console.log(response.data[0])
-                        sessionStorage.setItem('user', JSON.stringify(response.data[0]))
-                                // $state.go("the logged in state")
-                                
-                             
+                promiseObj: function ($http, $q, mainService) {
+                    var deferred = $q.defer()
+                    mainService.grabLoginSuccess().then(function(response) {
+                        deferred.resolve()
                     })
+                    return deferred.promise
                 }
                 
             }

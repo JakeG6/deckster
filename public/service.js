@@ -156,4 +156,16 @@ angular.module('mainApp').service('mainService', function($http, $state) {
 
     }
 
+    this.grabLoginSuccess = function() {
+        return $http({
+            method: 'GET',
+            url: '/loginsuccess'
+        }).then(function(response) {
+            sessionStorage.setItem('user', JSON.stringify(response.data[0]))
+                    // $state.go("the logged in state")
+                    
+                 
+        })
+    }
+
 });

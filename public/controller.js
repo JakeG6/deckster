@@ -1,6 +1,5 @@
 angular.module('mainApp').controller('mainController', function($scope, mainService, $state) {
 
-    // $scope.loginStatus = 'Logout';
     $scope.loginStatus = false;
 
     $scope.logout = function() {
@@ -12,12 +11,7 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
        
     }
 
-    console.log($scope.loginStatus);
-
-    console.log('sessionStorage.getItemUser', sessionStorage.getItem('user'))
     $scope.loginStatus = sessionStorage.getItem('user') ? true : false;
-
-    console.log($scope.loginStatus);
 
 
 });
