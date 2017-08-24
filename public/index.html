@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mainApp">
+<html lang="en" ng-app="mainApp" ng-cloak>
     <head>
         <title></title>
         <meta charset="UTF-8">
@@ -26,8 +26,8 @@
             </div>
               
 
-            <ul id="links" >
-                <li>
+            <ul id="links">
+                <li ng-if="loginStatus !== true">
                     <div>
                         <a class="active" ui-sref="home" ui-sref-active="active">Home</a>
                     </div>    
@@ -37,25 +37,24 @@
                         <a class="active" ui-sref="cardSearch" ui-sref-active="active">Card Search</a>
                     </div>    
                 </li>
-                <li>
+                <li ng-if="loginStatus == true">
                     <div>
                         <a class="active" ui-sref="deckBuilder" ui-sref-active="active">Deck Builder</a>
                     </div>    
                 </li>
-                <li>
+                <li ng-if="loginStatus == true">
                     <div>
                        <a class="active" ui-sref="deckCollection" ui-sref-active="active">Deck Collection</a> 
                     </div>    
                 </li>
-                <li>
+                <li ng-if="loginStatus == true">
                     <div>
-                        <a class="active" ng-click="changeLoginStatus()" ui-sref-active="active">{{loginStatus}}</a>
+                        <a class="active" ng-click="logout()" ui-sref-active="active">Log Out</a>
                     </div>    
                 </li>
                 
                                                                            
             </ul>
-                          
         </div>
 
         <div ui-view class="main-view container"></div>

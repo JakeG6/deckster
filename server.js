@@ -38,6 +38,9 @@ passport.use(new FacebookStrategy({
 }, function(token, refreshToken, profile, done) {
     var dbInstance = app.get('db');
     dbInstance.get_user_by_facebookid([profile.id]).then(user => {
+
+        console.log(profile.id);
+
         if (user && user.length && user[0].facebook_id === profile.id) {
             return done(null, user)
         } else {
@@ -76,9 +79,9 @@ app.post('/api/users/:id/decks', deckController.createDeck);
 
 
 
-app.get('/loginsuccess', function(req, res, next) {
-    res.send(req.user)
-})
+// app.get('/loginsuccess', function(req, res, next) {
+//     res.send(req.user)
+// })
 
 
 //USERNAME AND PASSWORD STRATEGY

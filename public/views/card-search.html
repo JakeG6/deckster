@@ -8,11 +8,7 @@
         <form class="search-form">
            <p>Retrieve card information via name or multiverse ID</p>
             <input ng-model="cardInput" type="text" name="" value="">
-                <!-- <select>
-                    <option value="volvo">Search by Name</option>
-                    <option value="saab">Search by Multiverse ID</option>
-                    
-                </select> -->
+             
 
                 <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
                 <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
