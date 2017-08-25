@@ -149,11 +149,9 @@ ul {list-style-type: none;}
     display: none;
     position: absolute;
     flex-direction: column;
-    
-    
     width: 240px;
     height: 3em;
-    top: 300px;
+    top: 140px;
     right: 0px;
     z-index: 1;
 }
