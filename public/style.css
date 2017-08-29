@@ -79,6 +79,10 @@ ul {list-style-type: none;}
     box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
 }
 
+#links .logout:hover {
+    cursor: pointer;
+}
+
 /* home */
 
 .signup-container {

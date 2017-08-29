@@ -58,8 +58,19 @@ angular.module('mainApp').service('mainService', function($http, $state) {
             method: 'GET',
             url: 'https://api.magicthegathering.io/v1/cards?name=' + name
             }).then(function(cards) {
+
                 console.log('cards in service', cards)
-                const response = cards.data.cards[0];
+                
+                var response;
+
+                for (var i = 0; i < cards.data.cards.length; i++) {
+                    if (cards.data.cards[i].hasOwnProperty('imageUrl')) {
+                       response  = cards.data.cards[i];
+                       return response;
+                    }
+                }
+
+                // const response = cards.data.cards[0];
                 return new Card(
                     response.imageUrl,
                     response.name, 
