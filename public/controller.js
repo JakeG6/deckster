@@ -21,12 +21,16 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
 
    //jQuery for navbar
    $(document).ready(function(){
-
-
     
+    // $(document).click(function(){
+                //     if (dropDownDisplayed == true) {
+                //         $("#links").css("display", "none");
+                //         dropDownDisplayed = false;
+                //         console.log('dropdown displayed?', dropDownDisplayed);   
+                //     }
+                // })    
+
                 var dropDownDisplayed = false;
-
-
 
                 // jQuery methods go here...
                 $(".fa-bars").click(function(){
@@ -70,9 +74,7 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                         dropDownDisplayed = false;
                         console.log('dropdown displayed?', dropDownDisplayed);  
                     } 
- 
                  });
-
                 
     
                 $(window).resize(function() {
@@ -95,11 +97,10 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                     // if ($scope.loginStatus == true && $(window).width()<=1024){
                     //     $("#links").css("top", "240px");
                     // }    
+
+                
                 
     
-                });
-
-   
-
+    });
 
 });

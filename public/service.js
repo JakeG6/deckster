@@ -2,7 +2,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
   
     var userAccount = [];
 
-    function Card(imageUrl, name, manaCost, cmc, colors, type, text) {
+    function Card(imageUrl, name, manaCost, cmc, colors, type, text, flavor, power, toughness) {
        
         this.imageUrl = imageUrl;
         this.name = name;
@@ -11,7 +11,9 @@ angular.module('mainApp').service('mainService', function($http, $state) {
         this.colors = colors;
         this.type = type;
         this.text = text;
-
+        this.flavor = flavor;
+        this.power = power;
+        this.toughness = toughness;
     }
 
     function User(username, password) {
@@ -46,7 +48,10 @@ angular.module('mainApp').service('mainService', function($http, $state) {
                     response.data.card.cmc,
                     response.data.card.colors,
                     response.data.card.type,
-                    response.data.card.text);
+                    response.data.card.text,
+                    response.data.card.flavor,
+                    response.data.card.power,
+                    response.data.card.toughness);
             }, function (response) {
                 alert('An Error');
             });
@@ -78,7 +83,10 @@ angular.module('mainApp').service('mainService', function($http, $state) {
                     response.cmc,
                     response.colors,
                     response.type,
-                    response.text);
+                    response.text,
+                    response.flavor,
+                    response.power,
+                    response.toughness);
             }, function (response) {
                 alert('An Error', response);
             });
@@ -96,7 +104,10 @@ angular.module('mainApp').service('mainService', function($http, $state) {
                     response.data.card.cmc,
                     response.data.card.colors,
                     response.data.card.type,
-                    response.data.card.text);
+                    response.data.card.text,
+                    response.data.card.flavor,
+                    response.data.card.power,
+                    response.data.card.toughness);
             }, function (response) {
                 alert('An Error');
         });
@@ -164,6 +175,20 @@ angular.module('mainApp').service('mainService', function($http, $state) {
             
             }
         )
+
+    }
+    
+
+    this.destroyDeck = function(id) {
+        
+       
+    
+        return $http({
+            method: 'DELETE',
+            url: 'api/users/decks/' + id,
+        });
+
+
 
     }
 

@@ -71,8 +71,10 @@ ul {list-style-type: none;}
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     color: white;
     margin-top: 2em;
+    padding: 10px;
     border: 7px ridge #B5A642;
     border-radius: 10px;
+
 
     -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
@@ -196,6 +198,26 @@ ul {list-style-type: none;}
 
 }
 
+@media (max-width: 767px) {
+   
+    .card-stat-display {
+        
+        margin-top: 1em;
+      
+        }
+
+}
+
+@media (max-width: 500px) {
+    .deck-builder-notes {
+        width: 275px;
+    }
+
+    .deck-builder-list {
+        width: 275px;
+    }
+}
+
 
 @media (max-width: 375px) {
 
@@ -206,9 +228,31 @@ ul {list-style-type: none;}
     }
 
     .card-stat-display {
-    text-align: center;
-    
-    
-}
+    text-align: center !important;
+    margin-top: 1em;
+  
+    }
 
 }
+
+/* VIEW TRANSITIONS */
+.ng-enter, .ng-leave {
+    position: absolute;
+    top: 8em;
+    left: -100%;
+    width: 100%;
+    transition: left .5s;
+  }
+  
+  .ng-enter.ng-enter-active {
+    left: 0%;
+  }
+  
+  .ng-leave {
+    left: 0%;
+  }
+  .ng-leave-active {
+    transition: left .5s;
+    left: 100%;
+  }
+  

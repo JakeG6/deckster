@@ -1,49 +1,68 @@
-<div>
+
+
+<div class="main-view container">
    <h1>Your Deck Collection</h1>
+   
+  
    
    <div id="deck-array" ng-repeat="deck in decks">
         <h2 class="deck-array-title" ng-click="deck.openModal=!deck.openModal">{{deck.name}}</h2>
+
+        
 
         <div class="modal-overlay" ng-show="deck.openModal" style="color: black">
             <div class="modal-display">
                 <div class="modal-content">
                     <div class="not-edit" ng-show="!deck.edit">
+                        
                         <h3>{{deck.name}}</h3>
+                        
                         <div class="deck-list">
                             <p>{{deck.deck_list}}</p>
                         </div>
                         
                         <p>{{deck.deck_notes}}</p>
                         <button class="btn btn-primary" ng-click="deck.edit=!deck.edit">Edit</button>
+                        <button class="btn btn-danger" type="" ng-click="destroyDeck(deck.id)">Destroy Deck</button>
                         <button class="btn btn-primary" type="" ng-click="deck.openModal=!deck.openModal">Close</button>
+                    
                     </div>
+                    
                     <div ng-show="deck.edit">
+                       
                         <div class="edit-row">
-                            <div>
+                            <div class="edit-div">
                                 Name: <br>
                                 <input ng-model="deck.name">
                             </div>
-                            <div>
+                            <div class="edit-div">
                                 Contents: <br> 
                                 <textarea ng-model="deck.deck_list"></textarea>
                             </div>
-                            <div>
+                            <div class="edit-div">
                                 Notes: <br>
                             <textarea ng-model="deck.deck_notes"></textarea>
                             </div>
-                        </div>                        
+                        </div> 
+
                         <div class="deck-actions">
-                           <button class="btn btn-primary" type="" ng-click="updateDeck(deck)">Save Changes</button> 
-                           <button class="btn btn-primary" type="" ng-click="deck.edit=!deck.edit">Close</button> 
+                           <button class="btn btn-success" type="" ng-click="updateDeck(deck)">Save Changes</button>
+                           <button class="btn btn-danger" type="" ng-click="deck.edit=!deck.edit">Close</button> 
                         </div>
+
                     </div>
                 </div> 
             </div>
         </div>
    </div>
+
    <div class="new-deck">
        <a class="btn btn-primary btn-lg" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
    </div>
+
+    <!-- <div class="deck-saved">
+        <h3>Deck Saved</h3>
+    </div> -->
     
 
 </div>
@@ -75,6 +94,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.edit-div {
+    padding-top: 1em;
 }
 
 .deck-actions {
@@ -104,6 +129,21 @@
 
 .new-deck button {
     width: 500px;
+}
+
+.deck-saved {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    position: absolute;
+    height: 75px;
+    width: 200px;
+    top: 40px;
+    text-align: center;
+    border: 7px ridge #B5A642;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
 }
 
 </style>

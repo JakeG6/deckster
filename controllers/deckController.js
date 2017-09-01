@@ -20,7 +20,7 @@ module.exports = {
         })
     },
 
-     createDeck: function(req, res) {
+    createDeck: function(req, res) {
         console.log('this is req.body.deck', req.body)
         //req.body has on it whatever you pass in 'data' from angular
         var dbInstance = req.app.get('db');
@@ -28,6 +28,18 @@ module.exports = {
             console.log('this is our response', response);
             res.send(response);
         })
+    },
+
+    destroyDeck: function(req, res) {
+        console.log('this is req.body.deck', req.params.id)
+        var dbInstance = req.app.get('db');
+        dbInstance.destroy_deck(req.params.id).then(response => {
+            res.send('deck destroyed');
+        });
+        //req.body has on it whatever you pass in 'data' from angular
+        // var dbInstance.destroy_deck([])
+
+
     }
 
 }

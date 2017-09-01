@@ -1,34 +1,37 @@
- <h1>Card Search</h1>
-
-<div id="card-search" ng-controller="cardSearchController">
-
-   
+<div class="main-view container">
+        <h1>Card Search</h1>
+        
+        <div id="card-search" ng-controller="cardSearchController">
             
-            
-        <form class="search-form">
-           <p>Retrieve card information via name or multiverse ID</p>
-            <input ng-model="cardInput" type="text" name="" value="">
-             
-
-                <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
-                <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
-        </form>
-
-        <div class="container">
-                
-                    <div class="row display-row">
-                        <div class="col-sm-6 card-display">
-                            <img src={{displayedCard.imageUrl}} alt="">
-                        </div>
-                        <div class="col-sm-6 card-stat-display">
-                            <p><strong>Name:</strong> {{displayedCard.name}}</p> 
-                            <p><strong>Mana Cost:</strong> {{displayedCard.manaCost}}</p>
-                            <p><strong>Converted Mana Cost:</strong> {{displayedCard.cmc}}</p>
-                            <p><strong>Colors:</strong> {{displayedCard.colors}}</p>
-                            <p><strong>Type:</strong> {{displayedCard.type}}</p>
-                            <p><strong>Text:</strong> {{displayedCard.text}}</p>
-
-                        </div>                
-                    </div>
-        </div>		    
+                <form class="search-form">
+                   <p>Retrieve card information via name or multiverse ID</p>
+                    <input ng-model="cardInput" type="text" name="" value="">
+                     
+        
+                        <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
+                        <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
+                </form>
+        
+                <div class="container result-container">
+                        
+                            <div class="row display-row">
+                                <div class="col-sm-6 card-display">
+                                    <img src={{displayedCard.imageUrl}} alt="">
+                                </div>
+                                <div class="col-sm-6 card-stat-display">
+                                    <p><strong>Name:</strong> {{displayedCard.name}}</p> 
+                                    <p><strong>Mana Cost:</strong> {{displayedCard.manaCost}}</p>
+                                    <p><strong>Converted Mana Cost:</strong> {{displayedCard.cmc}}</p>
+                                    <p><strong>Colors:</strong> {{displayedCard.colors}}</p>
+                                    <p><strong>Type:</strong> {{displayedCard.type}}</p>
+                                    <p><strong>Text:</strong> {{displayedCard.text}}</p>
+                                    <p><strong>Flavor Text:</strong> <i> {{displayedCard.flavor}}</i></p>
+                                    <p><strong>power:</strong> {{displayedCard.power}}</p>
+                                    <p><strong>Toughness:</strong> {{displayedCard.toughness}}</p>
+                                </div>                
+                            </div>
+                </div>		    
+        </div>
 </div>
+
+

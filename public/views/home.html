@@ -1,31 +1,35 @@
-<h1>Magic Made Easy</h1>
-<p>Deckster allows you to assemble and save your very own Magic: The Gathering
-    decks from 25 years of card history. Sign up today and see what Deckster can do for you.</p>
-
-    <h1>Sign Up</h1>
-    
-    <div class="container-fluid text-center signup-container"  >
-        <form action="/login" method="post">
-            <div>
-                <label>Username:</label> <br>
-                <input type="text" name="username" style="color: black"/>
+<div class="main-view container">
+        <h1>Magic Made Easy</h1>
+        <p>Deckster allows you to assemble and save your very own Magic: The Gathering
+            decks from 25 years of card history. Sign up today and see what Deckster can do for you.</p>
+        
+            <h1>Sign Up</h1>
+            
+            <div class="container-fluid text-center signup-container"  >
+                <form action="/login" method="post">
+                    <div>
+                        <label>Username:</label> <br>
+                        <input type="text" name="username" style="color: black"/>
+                    </div>
+                    <div>
+                        <label>Password:</label> <br>
+                        <input type="password" name="password" style="color: black"/>
+                    </div>
+                    <div>
+                        <input type="submit" value="Log In" style="color: black"/>
+                    </div>
+                </form>
+        
+                <br>
+                    <a href="/auth/facebook" class="btn btn-primary btn-lg facebook-signin">Continue with facebook</a> 
+                                <!-- <a ng-click="loginWithFacebook()">signup or login with facebook</a> -->
+                <br>
+        
+        
             </div>
-            <div>
-                <label>Password:</label> <br>
-                <input type="password" name="password" style="color: black"/>
-            </div>
-            <div>
-                <input type="submit" value="Log In" style="color: black"/>
-            </div>
-        </form>
-
-        <br>
-            <a href="/auth/facebook" class="btn btn-primary btn-lg facebook-signin">Continue with facebook</a> 
-                        <!-- <a ng-click="loginWithFacebook()">signup or login with facebook</a> -->
-        <br>
+</div>
 
 
-    </div>
 
 
     <!-- <div class="container-fluid text-center signup-container" >

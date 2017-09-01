@@ -76,6 +76,7 @@ app.get('/loginSuccess', function(req, res, next) {
 app.get('/api/users/:id/decks', deckController.getDecks);
 app.put('/api/users/:id/decks', deckController.updateDeck);
 app.post('/api/users/:id/decks', deckController.createDeck);
+app.delete('/api/users/decks/:id', deckController.destroyDeck);
 
 
 
@@ -135,6 +136,8 @@ app.post('/api/users/:id/decks', deckController.createDeck);
     console.log('is this working')
     res.send('failed')
     })
+
+    
 
 
 
