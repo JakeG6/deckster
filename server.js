@@ -26,7 +26,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 //require passport strategy
 const LocalStrategy = require('passport-local').Strategy;
 
-app.use(session({ secret: 'some-random-string' }));
+app.use(session({ secret: 'some-random-string', saveUninitialized: true, resave: false }));
 app.use(passport.initialize());
 app.use(passport.session())
 

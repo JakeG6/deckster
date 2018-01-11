@@ -84,22 +84,7 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                     } else {
                         $("#links").css("display", "none");
                     }
-                });
-    
-                // dropdown menu while loggedout
-                 
-                    // if ($scope.loginStatus !== true && $(window).width()<=1024){
-                    //     $("#links").css("top", "140px");
-                    // }    
-                   
-                // dropdown menu while loggedin
-                
-                    // if ($scope.loginStatus == true && $(window).width()<=1024){
-                    //     $("#links").css("top", "240px");
-                    // }    
-
-                
-                
+                });            
     
     });
 

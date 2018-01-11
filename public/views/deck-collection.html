@@ -29,7 +29,11 @@
                     </div>
                     
                     <div ng-show="deck.edit">
-                       
+                        
+                        <div class="deck-saved">
+                            <h3>Deck Saved</h3>
+                        </div>
+
                         <div class="edit-row">
                             <div class="edit-div">
                                 Name: <br>
@@ -60,9 +64,7 @@
        <a class="btn btn-primary btn-lg" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
    </div>
 
-    <!-- <div class="deck-saved">
-        <h3>Deck Saved</h3>
-    </div> -->
+  
     
 
 </div>
@@ -133,11 +135,12 @@
 
 .deck-saved {
     color: #4F8A10;
+    
     background-color: #DFF2BF;
-    position: absolute;
+    position: relative;
     height: 75px;
     width: 200px;
-    top: 40px;
+    bottom: 100px;
     text-align: center;
     border: 7px ridge #B5A642;
     border-radius: 10px;

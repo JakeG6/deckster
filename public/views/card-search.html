@@ -5,20 +5,29 @@
             
                 <form class="search-form">
                    <p>Retrieve card information via name or multiverse ID</p>
-                    <input ng-model="cardInput" type="text" name="" value="">
-                     
-        
-                        <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
-                        <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
+                    <input ng-model="cardInput" type="text" name="" value="">       
+                    <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>
+                    <button ng-click="getCard(cardInput)" type="button" name="button">Search</button>
                 </form>
         
                 <div class="container result-container">
                         
-                            <div class="row display-row">
+                            <div ng-repeat="card in uniqueCards" class="row display-row">
                                 <div class="col-sm-6 card-display">
-                                    <img src={{displayedCard.imageUrl}} alt="">
+                                    <img src={{card.imageUrl}} alt="">
                                 </div>
                                 <div class="col-sm-6 card-stat-display">
+                                    <p><strong>Name:</strong> {{card.name}}</p> 
+                                    <p><strong>Mana Cost:</strong> {{card.manaCost}}</p>
+                                    <p><strong>Converted Mana Cost:</strong> {{card.cmc}}</p>
+                                    <p><strong>Colors:</strong> {{card.colors}}</p>
+                                    <p><strong>Type:</strong> {{card.type}}</p>
+                                    <p><strong>Text:</strong> {{card.text}}</p>
+                                    <p><strong>Flavor Text:</strong> <i> {{card.flavor}}</i></p>
+                                    <p><strong>power:</strong> {{card.power}}</p>
+                                    <p><strong>Toughness:</strong> {{card.toughness}}</p>
+                                </div>   
+                                <!-- <div class="col-sm-6 card-stat-display">
                                     <p><strong>Name:</strong> {{displayedCard.name}}</p> 
                                     <p><strong>Mana Cost:</strong> {{displayedCard.manaCost}}</p>
                                     <p><strong>Converted Mana Cost:</strong> {{displayedCard.cmc}}</p>
@@ -28,7 +37,7 @@
                                     <p><strong>Flavor Text:</strong> <i> {{displayedCard.flavor}}</i></p>
                                     <p><strong>power:</strong> {{displayedCard.power}}</p>
                                     <p><strong>Toughness:</strong> {{displayedCard.toughness}}</p>
-                                </div>                
+                                </div>                 -->
                             </div>
                 </div>		    
         </div>

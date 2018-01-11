@@ -58,38 +58,42 @@ angular.module('mainApp').service('mainService', function($http, $state) {
     }
 
     this.getCardByName = function(name) {
-        console.log(11111, 'I am here')
+        console.log(11111, 'I am here');
         return $http({
             method: 'GET',
-            url: 'https://api.magicthegathering.io/v1/cards?name=' + name
-            }).then(function(cards) {
+            url: 'https://api.magicthegathering.io/v1/cards?name=' + name + '&contains=imageUrl'
+            }).then(function(response) {
 
-                console.log('cards in service', cards)
-                
-                var response;
+                console.log(response.data);
+                var returnedCards = response.data.cards;
+                var uniqueCards = [];
+                console.log('the contents of returned cards: ', returnedCards);
 
-                for (var i = 0; i < cards.data.cards.length; i++) {
-                    if (cards.data.cards[i].hasOwnProperty('imageUrl')) {
-                       response  = cards.data.cards[i];
-                       return response;
+                for (var card of returnedCards) {
+                    var testedCard = card;
+                    var uniqueName = true;
+
+                    for (var uniqueCard of uniqueCards) {
+                        console.log("testing name")
+                        if (testedCard.name === uniqueCard.name) {
+                            console.log("the name is the same");
+                            uniqueName = false; 
+                            break;
+                        }
+                    }
+                    if (uniqueName) {
+                        uniqueCards.push(testedCard);
                     }
                 }
-
-                // const response = cards.data.cards[0];
-                return new Card(
-                    response.imageUrl,
-                    response.name, 
-                    response.manaCost,
-                    response.cmc,
-                    response.colors,
-                    response.type,
-                    response.text,
-                    response.flavor,
-                    response.power,
-                    response.toughness);
-            }, function (response) {
-                alert('An Error', response);
-            });
+                
+                console.log('duplicate cards removed');
+                console.log('here are the unique cards: ', uniqueCards);
+                return uniqueCards;
+                    
+                }), 
+                function (cards) {
+                    alert('An Error', cards);
+                };
     }
 
     this.getCardById = function(id) {
@@ -180,9 +184,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
     
 
     this.destroyDeck = function(id) {
-        
        
-    
         return $http({
             method: 'DELETE',
             url: 'api/users/decks/' + id,

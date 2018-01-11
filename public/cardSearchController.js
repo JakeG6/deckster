@@ -19,7 +19,6 @@ angular.module('mainApp').controller('cardSearchController', function($scope, ma
 
     };
 
-
     $scope.items = [
         {
             label: 'Search By Name'
