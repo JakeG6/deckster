@@ -12,9 +12,9 @@
         
                 <div class="container result-container">
                         
-                            <div ng-repeat="card in uniqueCards" class="row display-row">
+                            <div ng-repeat="card in displayedCards" class="row display-row no-animate">
                                 <div class="col-sm-6 card-display">
-                                    <img src={{card.imageUrl}} alt="">
+                                    <img src={{card.imageUrl}} alt="card image">
                                 </div>
                                 <div class="col-sm-6 card-stat-display">
                                     <p><strong>Name:</strong> {{card.name}}</p> 
@@ -27,17 +27,7 @@
                                     <p><strong>power:</strong> {{card.power}}</p>
                                     <p><strong>Toughness:</strong> {{card.toughness}}</p>
                                 </div>   
-                                <!-- <div class="col-sm-6 card-stat-display">
-                                    <p><strong>Name:</strong> {{displayedCard.name}}</p> 
-                                    <p><strong>Mana Cost:</strong> {{displayedCard.manaCost}}</p>
-                                    <p><strong>Converted Mana Cost:</strong> {{displayedCard.cmc}}</p>
-                                    <p><strong>Colors:</strong> {{displayedCard.colors}}</p>
-                                    <p><strong>Type:</strong> {{displayedCard.type}}</p>
-                                    <p><strong>Text:</strong> {{displayedCard.text}}</p>
-                                    <p><strong>Flavor Text:</strong> <i> {{displayedCard.flavor}}</i></p>
-                                    <p><strong>power:</strong> {{displayedCard.power}}</p>
-                                    <p><strong>Toughness:</strong> {{displayedCard.toughness}}</p>
-                                </div>                 -->
+                                
                             </div>
                 </div>		    
         </div>

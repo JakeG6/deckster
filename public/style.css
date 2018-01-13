@@ -255,4 +255,9 @@ ul {list-style-type: none;}
     transition: left .5s;
     left: 100%;
   }
+
+  .no-animate {
+    -webkit-transition: none !important;
+    transition: none !important;
+ }
   

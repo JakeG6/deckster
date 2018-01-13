@@ -2,20 +2,6 @@ angular.module('mainApp').service('mainService', function($http, $state) {
   
     var userAccount = [];
 
-    function Card(imageUrl, name, manaCost, cmc, colors, type, text, flavor, power, toughness) {
-       
-        this.imageUrl = imageUrl;
-        this.name = name;
-        this.manaCost = manaCost;
-        this.cmc = cmc;
-        this.colors = colors;
-        this.type = type;
-        this.text = text;
-        this.flavor = flavor;
-        this.power = power;
-        this.toughness = toughness;
-    }
-
     function User(username, password) {
         this.username = username;
         this.password = password
@@ -39,22 +25,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
         return $http({
             method: 'GET',
             url: 'https://api.magicthegathering.io/v1/cards/' + id
-            }).then(function(response) {
-                console.log(response);
-                return new Card(
-                    response.data.card.imageUrl,
-                    response.data.card.name, 
-                    response.data.card.manaCost,
-                    response.data.card.cmc,
-                    response.data.card.colors,
-                    response.data.card.type,
-                    response.data.card.text,
-                    response.data.card.flavor,
-                    response.data.card.power,
-                    response.data.card.toughness);
-            }, function (response) {
-                alert('An Error');
-            });
+            })
     }
 
     this.getCardByName = function(name) {
@@ -62,59 +33,7 @@ angular.module('mainApp').service('mainService', function($http, $state) {
         return $http({
             method: 'GET',
             url: 'https://api.magicthegathering.io/v1/cards?name=' + name + '&contains=imageUrl'
-            }).then(function(response) {
-
-                console.log(response.data);
-                var returnedCards = response.data.cards;
-                var uniqueCards = [];
-                console.log('the contents of returned cards: ', returnedCards);
-
-                for (var card of returnedCards) {
-                    var testedCard = card;
-                    var uniqueName = true;
-
-                    for (var uniqueCard of uniqueCards) {
-                        console.log("testing name")
-                        if (testedCard.name === uniqueCard.name) {
-                            console.log("the name is the same");
-                            uniqueName = false; 
-                            break;
-                        }
-                    }
-                    if (uniqueName) {
-                        uniqueCards.push(testedCard);
-                    }
-                }
-                
-                console.log('duplicate cards removed');
-                console.log('here are the unique cards: ', uniqueCards);
-                return uniqueCards;
-                    
-                }), 
-                function (cards) {
-                    alert('An Error', cards);
-                };
-    }
-
-    this.getCardById = function(id) {
-        return $http({
-            method: 'GET',
-            url: 'https://api.magicthegathering.io/v1/cards/' + id
-            }).then(function(response) {
-                return new Card(
-                    response.data.card.imageUrl,
-                    response.data.card.name, 
-                    response.data.card.manaCost,
-                    response.data.card.cmc,
-                    response.data.card.colors,
-                    response.data.card.type,
-                    response.data.card.text,
-                    response.data.card.flavor,
-                    response.data.card.power,
-                    response.data.card.toughness);
-            }, function (response) {
-                alert('An Error');
-        });
+            })
     }
 
     this.getDecks = function() {

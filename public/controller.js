@@ -78,7 +78,7 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                 
     
                 $(window).resize(function() {
-                    console.log('window.innerwidth', window.innerWidth)
+                    // console.log('window.innerwidth', window.innerWidth)
                     if (window.innerWidth > 1024 || dropDownDisplayed == true) {
                         $("#links").css("display", "flex");
                     } else {
