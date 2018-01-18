@@ -3,7 +3,7 @@
         
         <div id="card-search" ng-controller="cardSearchController">
             
-                <form class="search-form">
+                <form ng-submit="getCard(cardInput)" class="search-form">
                    <p>Retrieve card information via name or multiverse ID</p>
                     <input ng-model="cardInput" type="text" name="" value="">       
                     <select ng-model="selectedItem" ng-options="item as item.label for item in items"></select>

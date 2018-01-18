@@ -12,8 +12,6 @@ angular.module('mainApp').controller('cardSearchController', function($scope, ma
                 console.log('the contents of returned cards: ', returnedCards);
                     
                         uniqueCards.push(returnedCards);
-                    
-                
                 
                 console.log('here are the unique cards: ', uniqueCards);
                 $scope.displayedCards = uniqueCards;

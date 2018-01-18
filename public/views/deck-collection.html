@@ -8,8 +8,6 @@
    <div id="deck-array" ng-repeat="deck in decks">
         <h2 class="deck-array-title" ng-click="deck.openModal=!deck.openModal">{{deck.name}}</h2>
 
-        
-
         <div class="modal-overlay" ng-show="deck.openModal" style="color: black">
             <div class="modal-display">
                 <div class="modal-content">
@@ -30,7 +28,7 @@
                     
                     <div ng-show="deck.edit">
                         
-                        <div class="deck-saved">
+                        <div id="deck-saved">
                             <h3>Deck Saved</h3>
                         </div>
 
@@ -50,7 +48,7 @@
                         </div> 
 
                         <div class="deck-actions">
-                           <button class="btn btn-success" type="" ng-click="updateDeck(deck)">Save Changes</button>
+                           <button id="save-deck" class="btn btn-success" type="" ng-click="updateDeck(deck)">Save Changes</button>
                            <button class="btn btn-danger" type="" ng-click="deck.edit=!deck.edit">Close</button> 
                         </div>
 
@@ -63,9 +61,6 @@
    <div class="new-deck">
        <a class="btn btn-primary btn-lg" ui-sref="deckBuilder" ui-sref-active="active">New Deck</a>
    </div>
-
-  
-    
 
 </div>
 
@@ -82,6 +77,10 @@
 .modal-display {
     border: 7px ridge #B5A642;
     border-radius: 10px;
+}
+
+.modal-content {
+    background-image: url("http://www.tri-kes.com/fileadmin/colorways/Glazed_Paper_L2-GP-16.jpg");
 }
 
 .not-edit {
@@ -133,10 +132,10 @@
     width: 500px;
 }
 
-.deck-saved {
+#deck-saved {
     color: #4F8A10;
-    
     background-color: #DFF2BF;
+    opacity: 0;
     position: relative;
     height: 75px;
     width: 200px;
@@ -149,7 +148,28 @@
     box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
 }
 
+#deck-saved {
+    animation: anime 1s 1;
+}
+@keyframes anime {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 </style>
+
+<script>
+    var deckSavedAlert = document.getElementById("deck-saved");
+    var saveButton = document.getElementById("save-deck");
+    
+</script>
 
 <!-- Tapped Out: Failed to load resource: the server responded 
 with a status of 400 (Bad Request) -->

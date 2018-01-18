@@ -12,20 +12,18 @@
         <link href="style.css" rel="stylesheet">
         <script src="http://tappedout.net/tappedout.js"></script>
         <!-- Latest compiled and minified CSS -->
-
         
     </head>
     <body id="background" ng-controller="mainController">
 
-        <div class="ourNav">            
+        <div class="ourNav" class="no-animate">            
             <div class="logo">Deckster</div>
            
             <div>
                  <i class="fa fa-bars fa-3x" aria-hidden="true"></i> 
             </div>
-              
 
-            <ul id="links" class="no-animate">
+            <ul id="links">
                 <li ng-if="loginStatus !== true">
                     <div>
                         <a class="active" ui-sref="home" ui-sref-active="active">Home</a>
@@ -54,7 +52,7 @@
             </ul>
         </div>
 
-        <div ui-view></div>
+        <div ui-view ></div>
   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
