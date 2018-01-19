@@ -3,8 +3,6 @@
 <div class="main-view container">
    <h1>Your Deck Collection</h1>
    
-  
-   
    <div id="deck-array" ng-repeat="deck in decks">
         <h2 class="deck-array-title" ng-click="deck.openModal=!deck.openModal">{{deck.name}}</h2>
 
@@ -149,15 +147,13 @@
 }
 
 #deck-saved {
-    animation: anime 1s 1;
+    animation: anime 1s ;
 }
 @keyframes anime {
   0% {
     opacity: 1;
   }
-  50% {
-    opacity: 1;
-  }
+  
   100% {
     opacity: 0;
   }

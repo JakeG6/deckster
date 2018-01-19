@@ -55,12 +55,6 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                         // console.log('dropdown displayed?', dropDownDisplayed);  
                     } 
                  });
-
-                //  $("#save-deck").click(function(){
-                //      $("#deck-saved").
-                //     $("#deck-saved").show().delay(5000).fadeOut();
-
-                //  });
                 
     
                 $(window).resize(function() {

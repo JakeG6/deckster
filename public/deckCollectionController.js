@@ -14,10 +14,12 @@ angular.module('mainApp').controller('deckCollectionController', function($scope
         console.log('updating deck in controller');
         mainService.updateDeck(deck);
         console.log("you clicked save deck");
+        console.log(deckSavedAlert.style.opacity);
         console.log(deckSavedAlert);
         deckSavedAlert.style.opacity = 1;
-        console.log("opacity is at 1")
-        setTimeout( () => {deckSavedAlert.style.opacity = 0}, 2000);
+        console.log(deckSavedAlert.style.opacity);
+        console.log("opacity is at 1");
+        setTimeout( () => {console.log("the timeout is happening");deckSavedAlert.style.opacity = 0}, 2000);
     }
 
     $scope.destroyDeck = function(id) {

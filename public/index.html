@@ -16,7 +16,7 @@
     </head>
     <body id="background" ng-controller="mainController">
 
-        <div class="ourNav" class="no-animate">            
+        <div class="ourNav not-me">            
             <div class="logo">Deckster</div>
            
             <div>
@@ -51,8 +51,8 @@
                 </li>                                                      
             </ul>
         </div>
-
-        <div ui-view ></div>
+        
+            <div ui-view class="view-container" ></div>
   
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -70,6 +70,7 @@
         <script src="./deckCollectionController.js"></script>
         <script src="./homeController.js"></script>
         <script src="./loginSuccessController.js"></script>
+        <script src="http://tappedout.net/tappedout.js"></script>
 
         <!--jQuery for Dropdown menu (requires loginStatus boolean) -->
        
