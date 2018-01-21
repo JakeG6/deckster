@@ -1,4 +1,4 @@
-angular.module('mainApp').service('mainService', function($http, $state) {
+angular.module('mainApp').service('mainService', function($http, $state, $rootScope) {
   
     var userAccount = [];
 
@@ -12,7 +12,8 @@ angular.module('mainApp').service('mainService', function($http, $state) {
             method: 'GET',
             url: '/auth/facebook'
         }).then(function(response) {
-            console.log("RESPONSE WOOO WOO WOO", response)
+            console.log("RESPONSE WOOO WOO WOO", response);
+            $rootScope.$emit("checkMenu");
         })
     }
 

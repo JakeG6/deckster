@@ -1,4 +1,4 @@
-angular.module('mainApp').controller('mainController', function($scope, mainService, $state) {
+angular.module('mainApp').controller('mainController', function($scope, $rootScope, mainService, $state) {
 
     $scope.loginStatus = false;
 
@@ -7,18 +7,26 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
         $scope.loginStatus = false;
         console.log($scope.loginStatus)
         $state.go('home');
+        $rootScope.$emit("checkMenu");
     }
+
+
+
 
     $scope.loginStatus = sessionStorage.getItem('user') ? true : false;
 
     $scope.$on('reloadController', function() {
         console.log('Something is happening')
         $scope.loginStatus = sessionStorage.getItem('user') ? true : false;
+        menuChecker();
    })
-
 
    //jQuery for navbar 
    $(document).ready(function(){
+
+                menuChecker();
+
+                $rootScope.$on("checkMenu", menuChecker);
 
                 var dropDownDisplayed = false;
                 
@@ -39,15 +47,6 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
                         }    
                     });
 
-                function menuChecker() {
-                    if ($scope.loginStatus !== true && $(window).width()<=1024){
-                        $("#links").css("top", "140px");
-                    }
-                    else if ($scope.loginStatus == true && $(window).width()<=1024){
-                        $("#links").css("top", "240px");
-                    }  
-                }  
-
                 $("#links, a").click(function(){
                     if (dropDownDisplayed == true && $(window).innerWidth()<= 1024) {
                         $("#links").css("display", "none");
@@ -59,13 +58,23 @@ angular.module('mainApp').controller('mainController', function($scope, mainServ
     
                 $(window).resize(function() {
                     // console.log('window.innerwidth', window.innerWidth)
+                    menuChecker();
                     if (window.innerWidth > 1024 || dropDownDisplayed == true) {
                         $("#links").css("display", "flex");
+                        
                     } else {
                         $("#links").css("display", "none");
                     }
                 });            
     
     });
+
+    function menuChecker() {
+        if ($scope.loginStatus == true && $(window).width()<=1024){
+            $("#links").css("top", "240px");
+            console.log("It's actually doing something");
+        }
+        else { $("#links").css("top", "140px"); }
+    }  
 
 });

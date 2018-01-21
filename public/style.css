@@ -234,7 +234,7 @@ ul {list-style-type: none;}
 
 
 
- .ng-enter, .has-transitions.ng-leave {
+ .view-container.ng-enter, .view-container.ng-leave {
     position: absolute;
     top: 8em;
     left: -100%;
@@ -242,16 +242,15 @@ ul {list-style-type: none;}
     transition: left .5s;
   }
   
-  .ng-enter.ng-enter-active {
+  .view-container.ng-enter.ng-enter-active {
     left: 0%;
   }
  
-  .ng-leave {
+  .view-container.ng-leave {
     left: 0%;
   }
  
-  .ng-leave-active {
-    transition: left .5s;
+  .view-container.ng-leave-active {
     left: 100%;
   }
 
